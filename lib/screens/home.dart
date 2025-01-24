@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ui_challenge5/dummy_data.dart';
+import 'package:ui_challenge5/screens/details.dart';
 import 'package:ui_challenge5/theme/colors.dart';
 import 'package:ui_challenge5/theme/font_cnst.dart';
 import 'package:ui_challenge5/theme/style_text.dart';
@@ -127,7 +128,7 @@ class _HomeState extends State<Home> {
   Container popularItem(int index) {
     return Container(
       // margin: EdgeInsets.only(right: 25, left: 20, top: 25),
-      margin: EdgeInsets.only(right: 25, top: 25),
+      margin: EdgeInsets.only(right: 12, top: 25),
       height: 150,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
@@ -177,7 +178,7 @@ class _HomeState extends State<Home> {
                     Container(
                       width: 90,
                       height: 45,
-                      transform: Matrix4.translationValues(-16, 0, 0),
+                      transform: Matrix4.translationValues(-20, 0, 0),
                       decoration: BoxDecoration(
                         color: AppColor.primary,
                         borderRadius: BorderRadius.only(
@@ -185,9 +186,19 @@ class _HomeState extends State<Home> {
                           topRight: Radius.circular(20),
                         ),
                       ),
-                      child: Icon(
-                        Icons.add,
-                        size: 20,
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Detail(index: index),
+                            ),
+                          );
+                        },
+                        icon: Icon(
+                          Icons.add,
+                          size: 20,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -214,10 +225,15 @@ class _HomeState extends State<Home> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
                 boxShadow: [
-                  BoxShadow(color: Colors.grey[400]!, blurRadius: 20)
+                  BoxShadow(color: Colors.grey[200]!, blurRadius: 10)
                 ]),
-            child: Image.asset(popularFoodList[index]["imagePath"]!,
-                width: MediaQuery.of(context).size.width / 2.9),
+            child: Hero(
+              tag: ValueKey(
+                popularFoodList[index]["imagePath"]!,
+              ),
+              child: Image.asset(popularFoodList[index]["imagePath"]!,
+                  width: MediaQuery.of(context).size.width / 2.9),
+            ),
           ),
         ],
       ),

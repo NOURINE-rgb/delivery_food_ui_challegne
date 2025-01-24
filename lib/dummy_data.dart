@@ -51,22 +51,10 @@ const popularFoodList = [
 ];
 
 const ingredients = [
-  {
-    'imagePath': 'assets/tomato.png',
-  },
-  {
-    'imagePath': 'assets/onion.png',
-  },
-  {
-    'imagePath': 'assets/tomato.png',
-  },
-  {
-    'imagePath': 'assets/onion.png',
-  },
-  {
-    'imagePath': 'assets/tomato.png',
-  },
-  {
-    'imagePath': 'assets/onion.png',
-  },
+  'assets/tomato.png',
+  'assets/onion.png',
+  'assets/tomato.png',
+  'assets/onion.png',
+  'assets/tomato.png',
+  'assets/onion.png',
 ];
